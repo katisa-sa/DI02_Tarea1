@@ -9,11 +9,22 @@
       </ion-button>
     </ion-list-header>
     <ion-item>
-      <ion-label>Número:</ion-label>
+      <ion-label name="num">Número:</ion-label>
       <ion-input type="number" [(ngModel)]="numeroIntroducido"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>{{texto || 'Escribe un número entre el 0 y el 100.'}}</ion-label>
+      <ion-label color="secondary">Número de intentos: {{contador}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label color="success">{{texto || 'Escribe un número entre el 0 y el 100.'}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-button id="present-alert">¿QUIERES VOLVER A JUGAR?</ion-button>
+      <ion-alert
+        trigger="present-alert"
+        header="¿Nuevo juego?"
+        [buttons]="alertButtons">
+      </ion-alert>
     </ion-item>
   </ion-list>
 </ion-content>
