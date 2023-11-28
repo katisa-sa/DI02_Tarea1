@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
-
-
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -13,10 +11,9 @@ export class Tab4Page implements OnInit {
   numeroAleatorio !:number;
   numeroIntroducido: number = 0;
   texto: string = "";
+ 
   constructor() { }
-
   
-
   generarNumeroAleatorio() {
   this.numeroAleatorio = Math.floor(Math.random() * 100);
   }
