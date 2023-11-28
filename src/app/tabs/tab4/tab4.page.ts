@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab4',
@@ -7,10 +8,29 @@ import { TestBed } from '@angular/core/testing';
   styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
- 
+  
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        this.recargarPartida();        
+      },
+    },
+  ];
+    
+  
   numeroAleatorio !:number;
   numeroIntroducido: number = 0;
   texto: string = "";
+  contador: number = 0;
  
   constructor() { }
   
@@ -25,12 +45,19 @@ export class Tab4Page implements OnInit {
     } else if (this.numeroAleatorio<this.numeroIntroducido){
         this.texto = "Introduce un número menor.";
       } else if (this.numeroAleatorio==this.numeroIntroducido){
-        this.texto = "Has acertado.";
+        this.texto = "Enhorabuena!! Has acertado el numero secreto.";
       }
   }
-
+  
+  recargarPartida() {
+    // Recargar la página actual
+    this.contador = 0;
+           
+  }
+  
   onClick() {
     this.comprobarNumero();
+    this.contador = this.contador + 1;
   }
 
   ngOnInit() {
